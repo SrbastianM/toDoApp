@@ -7,9 +7,9 @@ import { ToDoList } from './components/ToDoList';
 import { ToDoItem } from './components/ToDoItem';
 
 const toDo = [
-    {text: 'Me pegan', completed: false},
-    {text: 'Me duele', completed: false},
-    {text: 'Llorar a la lloreria', completed: false}
+    {text: 'Escucho a un bebe llorar en mi casa', completed: false},
+    {text: 'Me levanto a revisar', completed: false},
+    {text: '*Vivo solo*', completed: false}
 ]
 
 function App() {
