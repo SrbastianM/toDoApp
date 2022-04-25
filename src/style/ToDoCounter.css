@@ -1,0 +1,59 @@
+.firstRectangule {
+    position: absolute;
+    width: 295px;
+    height: 418px;
+    left: 137px;
+    top: 120px;
+
+    background: #D3FF9B;
+}
+
+.secondRectangule {
+    position: absolute;
+    width: 212px;
+    height: 349px;
+    left: 40px;
+    top: 40px;
+
+    background: #FBD5D5;
+}
+
+.toDoCounterTitle {
+    position: absolute;
+    width: 180px;
+    height: 55px;
+    left: 24px;
+    top: 260px;
+
+    font-family: 'Salsa';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 37px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.1em;
+
+    color: #000000;
+}
+
+.toDoCounterparagraph {
+    position: absolute;
+    width: 205px;
+    height: 76px;
+    top: 110px;
+
+    font-family: 'Salsa';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 25px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: -0.035em;
+
+    color: #000000;
+
+}
