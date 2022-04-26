@@ -6,7 +6,7 @@ function ToDoList(props) {
     <div className="cardContainer">
       <div className="card Front">
         <h5>Insert what will you do!</h5>
-        <input placeholder="Hey, click me! :)" />
+        <textarea row='20'cols='40'placeholder="Hey, click me! :)"></textarea>
 
         <button type="submit" className="toDoButton">
           Submit

@@ -1,6 +1,6 @@
 import React from 'react';
 import { ToDoCounter } from './components/ToDoCounter';
-import { ToDoSearch } from './components/ToDoSearch';
+// import { ToDoSearch } from './components/ToDoSearch';
 import { ToDoList } from './components/ToDoList';
 import { ToDoItem } from './components/ToDoItem';
 
@@ -16,7 +16,7 @@ function App() {
     <React.Fragment>
       <ToDoCounter /> 
       <ToDoList>
-{/*      <ToDoSearch /> */}
+      {/* <ToDoSearch />  */}
           {toDo.map ( toDo => (
               <ToDoItem 
               text={toDo.text}

@@ -7,19 +7,22 @@
   margin-left: 50px;
   width:80%;
   height: 84%;
-  border: 1px solid lightgray;
-  box-shadow: 2px 2px 8px 4px #d3d3d3d1;
+  background-color: rgb(31, 26, 26);
+  border: 1px solid rgb(0, 255, 191);
+  box-shadow: 2px 2px 8px 4px #29e6ddd1;
   border-radius:15px;
   font-family: sans-serif;
 }
 
 .toDoCounterTitle {
+  color: antiquewhite;
   text-align: center;
   font-size: 24px;
   padding: 10px 10px 0 10px;;
 }
 
 .toDoCounterparagraph {
+  color: antiquewhite;
   padding: 10px;
   font-size: 22px;
   text-align: center;

@@ -7,57 +7,84 @@
   margin-left: 50px;
   width:80%;
   height: 84%;
-  border: 1px solid lightgray;
-  box-shadow: 2px 2px 8px 4px #d3d3d3d1;
+  border: 1px solid rgb(0, 255, 0);
+  box-shadow: 2px 2px 8px 4px #7bff53d1;
   border-radius:15px;
   font-family: sans-serif;
 }
 
-/* .cardContainer:hover > .Front {
+.cardContainer:hover > .Front {
   transform: rotateY(-180deg);
-} */
+}
 
-/* .cardContainer:hover > .Back {
+.cardContainer:hover > .Back {
   transform: rotateY(0deg);
-} */
+}
 
 .card {
   position: absolute;
   display: grid;
   place-items: center;
-  width: auto;
-  height: auto;
+  width: 100%;
+  height: 100%;
+  
+  border-radius: 15px;
   backface-visibility: hidden;
   transform: rotateY(0deg);
   transform-style: preserve-3d;
   transition: 1.5s cubic-bezier(0.4, 0.2, 0.2, 1);
 }
 
+
 .Front {
   position: relative;
-  justify-content: center;
+  text-align: center;
+  background-color: #181515;
   transform: rotateY(0deg);
 }
 
 .Front h5 {
+  color: antiquewhite;
+  justify-content: center;
   font-size: 20px;
+  align-self: end;
+  /*padding: 10px 10px 0 10px;*/
 }
 
-.Front input {
-  padding-left: 40%;
+.Front textarea {
+  display: flex;
+  position: relative;
+  margin: 0;
+  align-self: center;
+  text-shadow: #d3d3d3d1;
+  border-radius: 8px;
+
+  cursor: text;
+  outline: none;
+}
+
+.Front textarea::placeholder{
+  text-align: center;
+  line-height: 30px
 }
 .Front button {
-  margin-top: 24px;
-  padding-left: 30%;
-  padding-right: 30%;
-  
+  margin: 0;
+  width: 80px;
+  height: 70px;
+  border-radius: 50%;
+  align-self: start;
   text-align: center;
-  background-color: blanchedalmond;
+  text-decoration: none;
 }
 
 .Back {
+  max-width: 40%;
+  max-height: 85%;
+  background-color: #534d4d;
+  color: antiquewhite;
   transform: rotateY(180deg);
 }
+
 ul {
   margin: 0;
   padding: 0 0 56px 0;
