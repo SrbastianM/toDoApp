@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import { ToDoCounter } from './components/ToDoCounter';
 import { ToDoSearch } from './components/ToDoSearch';
 import { Button } from './components/Button';
