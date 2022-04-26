@@ -96,10 +96,10 @@ ul {
   list-style: none;
 }
 
-/* .cardContainer:hover > .Front {
+.cardContainer:hover > .Front {
   transform: rotateY(-180deg);
 }
 
 .cardContainer:hover > .Back {
   transform: rotateY(0deg);
-} */
+} 
