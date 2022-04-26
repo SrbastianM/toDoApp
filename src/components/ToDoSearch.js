@@ -2,8 +2,9 @@ import React from 'react';
 
 function ToDoSearch(){
     return (
-        <div>
-            <input className='ToDoSearch'placeholder='Insert, what will you do!'/>
+        <div className='headerCardDo'>
+            <h5>Insert what will you do!</h5>
+            <input placeholder='Hey, click me! :)'/>
         </div>
     );
 };

@@ -1,18 +1,63 @@
-.lorem {
+.cardContainer {
   display:flex;
   flex-direction:column;
   justify-content:center;
   
   margin-top: 50px;
   margin-left: 50px;
-  width:500px;
-  height: 550px;
+  width:80%;
+  height: 84%;
   border: 1px solid lightgray;
   box-shadow: 2px 2px 8px 4px #d3d3d3d1;
   border-radius:15px;
   font-family: sans-serif;
 }
 
+/* .cardContainer:hover > .Front {
+  transform: rotateY(-180deg);
+} */
+
+/* .cardContainer:hover > .Back {
+  transform: rotateY(0deg);
+} */
+
+.card {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  width: auto;
+  height: auto;
+  backface-visibility: hidden;
+  transform: rotateY(0deg);
+  transform-style: preserve-3d;
+  transition: 1.5s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+.Front {
+  position: relative;
+  justify-content: center;
+  transform: rotateY(0deg);
+}
+
+.Front h5 {
+  font-size: 20px;
+}
+
+.Front input {
+  padding-left: 40%;
+}
+.Front button {
+  margin-top: 24px;
+  padding-left: 30%;
+  padding-right: 30%;
+  
+  text-align: center;
+  background-color: blanchedalmond;
+}
+
+.Back {
+  transform: rotateY(180deg);
+}
 ul {
   margin: 0;
   padding: 0 0 56px 0;
