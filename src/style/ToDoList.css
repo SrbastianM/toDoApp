@@ -10,15 +10,6 @@
   border: 1px solid rgb(0, 255, 0);
   box-shadow: 2px 2px 8px 4px #7bff53d1;
   border-radius:15px;
-  font-family: sans-serif;
-}
-
-.cardContainer:hover > .Front {
-  transform: rotateY(-180deg);
-}
-
-.cardContainer:hover > .Back {
-  transform: rotateY(0deg);
 }
 
 .card {
@@ -46,6 +37,7 @@
 .Front h5 {
   color: antiquewhite;
   justify-content: center;
+  letter-spacing: 4px;
   font-size: 20px;
   align-self: end;
   /*padding: 10px 10px 0 10px;*/
@@ -67,15 +59,28 @@
   text-align: center;
   line-height: 30px
 }
-.Front button {
-  margin: 0;
-  width: 80px;
-  height: 70px;
-  border-radius: 50%;
+.Front a {
+  position: relative;
+  display: inline-block;
   align-self: start;
+
+  padding: 5px 20px;
+  letter-spacing: 4px;
+  font-size: 18px;
+  color: aliceblue;
   text-align: center;
   text-decoration: none;
+  overflow: hidden;
+  transition: 0.2s;
+  cursor: pointer;
 }
+
+
+.Front a:hover {
+  background-color: #1f362c;
+  border-radius: 5px;
+}
+
 
 .Back {
   max-width: 40%;
@@ -90,3 +95,11 @@ ul {
   padding: 0 0 56px 0;
   list-style: none;
 }
+
+/* .cardContainer:hover > .Front {
+  transform: rotateY(-180deg);
+}
+
+.cardContainer:hover > .Back {
+  transform: rotateY(0deg);
+} */

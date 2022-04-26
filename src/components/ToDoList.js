@@ -7,10 +7,7 @@ function ToDoList(props) {
       <div className="card Front">
         <h5>Insert what will you do!</h5>
         <textarea row='20'cols='40'placeholder="Hey, click me! :)"></textarea>
-
-        <button type="submit" className="toDoButton">
-          Submit
-        </button>
+        <a href='#'className="toDoButton">Submit</a>
       </div>
       <div className="card Back">
         <ul>{props.children}</ul>
