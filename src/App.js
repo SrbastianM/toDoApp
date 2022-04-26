@@ -16,16 +16,16 @@ function App() {
   return (
     <React.Fragment>
       <ToDoCounter /> 
-      <ToDoSearch />
       <ToDoList>
+      <ToDoSearch />
           {toDo.map ( toDo => (
               <ToDoItem 
               text={toDo.text}
               key={toDo.text}
               />)
           )}
-      </ToDoList>
       <Button />
+      </ToDoList>
     </React.Fragment>
 
   );

@@ -4,6 +4,7 @@
   justify-content:center;
   
   margin-top: 50px;
+  margin-left: 50px;
   width:500px;
   height: 550px;
   border: 1px solid lightgray;
@@ -20,4 +21,6 @@
 
 .toDoCounterparagraph {
   padding: 10px;
+  font-size: 22px;
+  text-align: center;
 }
