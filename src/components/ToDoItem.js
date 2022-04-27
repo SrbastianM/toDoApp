@@ -3,7 +3,7 @@ import "../style/ToDoItem.css";
 
 function ToDoItem(props) {
   return (
-    <li>
+    <li className="toDoItem">
       <span
         className={`Icon Icon-check ${props.completed && "Icon-check--active"}`}
       >
