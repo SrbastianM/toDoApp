@@ -1,7 +1,7 @@
 import React from 'react';
 import '../style/ToDoCounter.css';
 
-function ToDoCounter() {
+function ToDoCounter( {total, completed} ) {
     return (
         <div className='firstRectangule'>
             <div className='secondRectangule'>
@@ -10,6 +10,9 @@ function ToDoCounter() {
             <div className='toDoCounterparagraph'>
                 <p>
                     Api to sort your tasks, delete and add tasks.
+                </p>
+                <p>
+                    Total Tasks Completeds  {completed} and you have yet to realize {total}
                 </p>
             </div>
         </div>

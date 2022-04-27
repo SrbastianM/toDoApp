@@ -12,76 +12,6 @@
   border-radius:15px;
 }
 
-.card {
-  position: absolute;
-  display: grid;
-  place-items: center;
-  width: 100%;
-  height: 100%;
-  
-  border-radius: 15px;
-  backface-visibility: hidden;
-  transform: rotateY(0deg);
-  transform-style: preserve-3d;
-  transition: 1.5s cubic-bezier(0.4, 0.2, 0.2, 1);
-}
-
-
-.Front {
-  position: relative;
-  text-align: center;
-  background-color: #181515;
-  transform: rotateY(0deg);
-}
-
-.Front h5 {
-  color: antiquewhite;
-  justify-content: center;
-  letter-spacing: 4px;
-  font-size: 20px;
-  align-self: end;
-  /*padding: 10px 10px 0 10px;*/
-}
-
-.Front textarea {
-  display: flex;
-  position: relative;
-  margin: 0;
-  align-self: center;
-  text-shadow: #d3d3d3d1;
-  border-radius: 8px;
-
-  cursor: text;
-  outline: none;
-}
-
-.Front textarea::placeholder{
-  text-align: center;
-  line-height: 30px
-}
-.Front a {
-  position: relative;
-  display: inline-block;
-  align-self: start;
-
-  padding: 5px 20px;
-  letter-spacing: 4px;
-  font-size: 18px;
-  color: aliceblue;
-  text-align: center;
-  text-decoration: none;
-  overflow: hidden;
-  transition: 0.2s;
-  cursor: pointer;
-}
-
-
-.Front a:hover {
-  background-color: #1f362c;
-  border-radius: 5px;
-}
-
-
 .Back {
   max-width: 40%;
   max-height: 85%;
@@ -96,10 +26,4 @@ ul {
   list-style: none;
 }
 
-.cardContainer:hover > .Front {
-  transform: rotateY(-180deg);
-}
-
-.cardContainer:hover > .Back {
-  transform: rotateY(0deg);
-} 
+   
