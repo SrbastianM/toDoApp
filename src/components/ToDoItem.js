@@ -2,10 +2,6 @@ import React from "react";
 import "../style/ToDoItem.css";
 
 function ToDoItem(props) {
-  // const onComplete = () => {
-  //   console.log('right now, youre the best person in the entire world!')
-  // }
-
   return (
     <li className="toDoItem">
       <span
@@ -17,7 +13,7 @@ function ToDoItem(props) {
       <p className={`TodoItem-p ${props.completed && "TodoItem-p--complete"}`}>
         {props.text}
       </p>
-      <span className="Icon Icon-delete">x</span>
+      <span className="Icon Icon-delete" onClick={props.onDelete}>x</span>
     </li>
   );
 }

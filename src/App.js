@@ -36,9 +36,19 @@ function App() {
     setToDo(newArrToDo); //Seteamos un nuevo arreglo con nuevas propiedades
   };
 
+  const deleteTasks = (text) => { 
+    const toDoIndex = toDo.findIndex((toDo) => toDo.text === text); 
+    const newArrToDo = [...toDo];
+    newArrToDo.splice(toDoIndex, 1);
+    setToDo(newArrToDo); //Seteamos un nuevo arreglo con nuevas propiedades
+  };
+
   return (
     <React.Fragment>
-      <ToDoCounter />
+      <ToDoCounter 
+      total={totalTask}
+      completed={completeTasks}
+      />
       <ToDoList totalTask={totalTask} completed={completeTasks}>
         <ToDoSearch textInput={textInput} setInputValue={setInputValue} />
         {searchedTodos.map((toDo) => (
@@ -47,6 +57,7 @@ function App() {
             key={toDo.text}
             completed={toDo.completed} 
             onComplete={() => checkCompleteTasks(toDo.text)}
+            onDelete={() => deleteTasks(toDo.text)}
           />
         ))}
       </ToDoList>
