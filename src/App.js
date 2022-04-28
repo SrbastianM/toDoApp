@@ -1,18 +1,19 @@
 import React from "react";
 import { AppUI } from "./components/AppUI";
 
-// const defaultToDo = [
-//   { text: "Escucho a un bebe llorar en mi casa", completed: false },
-//   { text: "Me levanto a revisar", completed: false },
-//   { text: "*Vivo solo*", completed: true },
-// ];
+  // const defaultToDo = [
+  //    { text: "Escucho a un bebe llorar en mi casa", completed: false },
+  //    { text: "Me levanto a revisar", completed: false },
+  //    { text: "*Vivo solo*", completed: true },
+  // ];
 
-function App() {
-  const localStorageToDo = localStorage.getItem('TODO_V1');
+  const localStorageToDo = typeof window !== "undefined" ? localStorage.getItem('TODO_V1'): null;
+
+  function App() {
   let parsedToDo;
 
-  if(!localStorageToDo) {
-    localStorageToDo.setItem('TODO_V1', JSON.stringify([]));
+  if (!localStorageToDo) {
+    localStorage.setItem('TODO_V1', JSON.stringify([]));
     parsedToDo = [];
   } else {
     parsedToDo = JSON.parse(localStorageToDo);
@@ -36,29 +37,36 @@ function App() {
     });
   }
 
-  const checkCompleteTasks = (text) => { 
-    const toDoIndex = toDo.findIndex((toDo) => toDo.text === text); 
+
+  const saveToDos = (newArrToDo) => {
+    const stringifyToDo = JSON.stringify(newArrToDo);
+    localStorage.setItem('TODO_V1', stringifyToDo)
+    setToDo(newArrToDo)
+  }
+
+  const checkCompleteTasks = (text) => {
+    const toDoIndex = toDo.findIndex((toDo) => toDo.text === text);
     const newArrToDo = [...toDo];
     newArrToDo[toDoIndex].completed = true;
-    setToDo(newArrToDo); //Seteamos un nuevo arreglo con nuevas propiedades
+    saveToDos(newArrToDo); //Seteamos un nuevo arreglo con nuevas propiedades
   };
 
-  const deleteTasks = (text) => { 
-    const toDoIndex = toDo.findIndex((toDo) => toDo.text === text); 
+  const deleteTasks = (text) => {
+    const toDoIndex = toDo.findIndex((toDo) => toDo.text === text);
     const newArrToDo = [...toDo];
     newArrToDo.splice(toDoIndex, 1);
-    setToDo(newArrToDo); //Seteamos un nuevo arreglo con nuevas propiedades
+    saveToDos(newArrToDo); //Seteamos un nuevo arreglo con nuevas propiedades
   };
 
   return (
-    <AppUI 
-    totalTask={totalTask}
-    completedTasks={completeTasks}
-    textInput={textInput} 
-    setInputValue={setInputValue}
-    searchedTodos={searchedTodos}
-    checkCompleteTasks={checkCompleteTasks}
-    deleteTasks={deleteTasks}
+    <AppUI
+      totalTask={totalTask}
+      completedTasks={completeTasks}
+      textInput={textInput}
+      setInputValue={setInputValue}
+      searchedTodos={searchedTodos}
+      checkCompleteTasks={checkCompleteTasks}
+      deleteTasks={deleteTasks}
     />
   );
 }
