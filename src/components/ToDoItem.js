@@ -2,15 +2,15 @@ import React from "react";
 import "../style/ToDoItem.css";
 
 function ToDoItem(props) {
-  const onComplete = () => {
-    console.log('right now, youre the best person in the entire world!')
-  }
+  // const onComplete = () => {
+  //   console.log('right now, youre the best person in the entire world!')
+  // }
 
   return (
     <li className="toDoItem">
       <span
         className={`Icon Icon-check ${props.completed && "Icon-check--active"}`}
-        onClick={onComplete}
+        onClick={props.onComplete} 
       >
         o
       </span>
