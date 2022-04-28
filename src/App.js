@@ -33,7 +33,7 @@ function App() {
     const toDoIndex = toDo.findIndex((toDo) => toDo.text === text); 
     const newArrToDo = [...toDo];
     newArrToDo[toDoIndex].completed = true;
-    setToDo(newArrToDo);
+    setToDo(newArrToDo); //Seteamos un nuevo arreglo con nuevas propiedades
   };
 
   return (
