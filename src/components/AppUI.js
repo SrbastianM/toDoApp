@@ -5,13 +5,13 @@ import { ToDoList } from "../components/ToDoList";
 import { ToDoItem } from "../components/ToDoItem";
 
 function AppUI({
-    totalTask,
-    completeTasks,
-    textInput,
-    setInputValue,
-    searchedTodos,
-    checkCompleteTasks,
-    deleteTasks
+  totalTask,
+  completeTasks,
+  textInput,
+  setInputValue,
+  searchedTodos,
+  checkCompleteTasks,
+  deleteTasks,
 }) {
   return (
     <React.Fragment>

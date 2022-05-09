@@ -1,25 +1,33 @@
 import React from "react";
 import { AppUI } from "./components/AppUI";
 
-  // const defaultToDo = [
-  //    { text: "Escucho a un bebe llorar en mi casa", completed: false },
-  //    { text: "Me levanto a revisar", completed: false },
-  //    { text: "*Vivo solo*", completed: true },
-  // ];
+// const defaultToDo = [
+//    { text: "Escucho a un bebe llorar en mi casa", completed: false },
+//    { text: "Me levanto a revisar", completed: false },
+//    { text: "*Vivo solo*", completed: true },
+// ];
 
-  const localStorageToDo = typeof window !== "undefined" ? localStorage.getItem('TODO_V1'): null;
+const localStorageToDo =
+  typeof window !== "undefined" ? localStorage.getItem("TODO_V1") : null;
 
-  function App() {
-  let parsedToDo;
+function App() {
+  const [loading, setLoading] = React.useState(true);
+  const [toDo, setToDo] = React.useState(initialValue);
 
-  if (!localStorageToDo) {
-    localStorage.setItem('TODO_V1', JSON.stringify([]));
-    parsedToDo = [];
-  } else {
-    parsedToDo = JSON.parse(localStorageToDo);
-  }
+  React.useEffect(() => {
+    setTimeout(() => {
+      let parsedToDo;
+      if (!localStorageToDo) {
+        localStorage.setItem("TODO_V1", JSON.stringify([]));
+        parsedToDo = [];
+      } else {
+        parsedToDo = JSON.parse(localStorageToDo);
+      }
+      setItem(parsedToDo);
+      setLoading(false);
+    }, 2000);
+  });
 
-  const [toDo, setToDo] = React.useState(parsedToDo);
   const [textInput, setInputValue] = React.useState("");
 
   const completeTasks = toDo.filter((toDo) => !!toDo.completed).length; //Objeto en Default toDo
@@ -37,12 +45,11 @@ import { AppUI } from "./components/AppUI";
     });
   }
 
-
   const saveToDos = (newArrToDo) => {
     const stringifyToDo = JSON.stringify(newArrToDo);
-    localStorage.setItem('TODO_V1', stringifyToDo)
-    setToDo(newArrToDo)
-  }
+    localStorage.setItem("TODO_V1", stringifyToDo);
+    setToDo(newArrToDo);
+  };
 
   const checkCompleteTasks = (text) => {
     const toDoIndex = toDo.findIndex((toDo) => toDo.text === text);
