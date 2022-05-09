@@ -7,26 +7,29 @@ import { AppUI } from "./components/AppUI";
 //    { text: "*Vivo solo*", completed: true },
 // ];
 
-const localStorageToDo =
-  typeof window !== "undefined" ? localStorage.getItem("TODO_V1") : null;
+function useLocalStorage(itemName, initialValue) {
+  const localStorageToDo =
+    typeof window !== "undefined" ? localStorage.getItem(itemName) : null;
+  // Custom, hook para realizar el uso del localStorge
+  let parsedItem;
+  if (!localStorageToDo) {
+    localStorage.setItem(itemName, JSON.stringify(initialValue));
+    parsedItem = initialValue;
+  } else {
+    parsedItem = JSON.parse(localStorageToDo);
+  }
+  const [item, setItem] = React.useState(parsedItem);
+
+  const saveItem = (newArrItem) => {
+    const stringifyItem = JSON.stringify(newArrItem);
+    localStorage.setItem(itemName, stringifyItem);
+    setItem(newArrItem);
+  };
+  return [item, saveItem];
+}
 
 function App() {
-  const [loading, setLoading] = React.useState(true);
-  const [toDo, setToDo] = React.useState(initialValue);
-
-  React.useEffect(() => {
-    setTimeout(() => {
-      let parsedToDo;
-      if (!localStorageToDo) {
-        localStorage.setItem("TODO_V1", JSON.stringify([]));
-        parsedToDo = [];
-      } else {
-        parsedToDo = JSON.parse(localStorageToDo);
-      }
-      setItem(parsedToDo);
-      setLoading(false);
-    }, 2000);
-  });
+  const [toDo, saveToDos] = useLocalStorage("TODOS_V1", []);
 
   const [textInput, setInputValue] = React.useState("");
 
@@ -44,12 +47,6 @@ function App() {
       return toDoText.includes(toDoInput);
     });
   }
-
-  const saveToDos = (newArrToDo) => {
-    const stringifyToDo = JSON.stringify(newArrToDo);
-    localStorage.setItem("TODO_V1", stringifyToDo);
-    setToDo(newArrToDo);
-  };
 
   const checkCompleteTasks = (text) => {
     const toDoIndex = toDo.findIndex((toDo) => toDo.text === text);
