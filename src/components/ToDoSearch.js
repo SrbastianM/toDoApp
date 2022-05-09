@@ -1,7 +1,7 @@
 import React from "react";
 import "../style/toDoSearch.css";
 
-function ToDoSearch ({ textInput, setInputValue }) {
+export function ToDoSearch ({ textInput, setInputValue }) {
   const onValueChangeSearch = (event) => {
     console.log(event.target.value);
     setInputValue(event.target.value);
@@ -17,9 +17,7 @@ function ToDoSearch ({ textInput, setInputValue }) {
         value={textInput}
         onChange={onValueChangeSearch}
       ></textarea>
-      <a className="toDoButton">Submit</a>
+      <button className="toDoButton">Submit</button>
     </div>
   );
 }
-
-export { ToDoSearch };
