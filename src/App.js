@@ -8,28 +8,50 @@ import { AppUI } from "./components/AppUI";
 // ];
 
 function useLocalStorage(itemName, initialValue) {
-  const localStorageToDo =
-    typeof window !== "undefined" ? localStorage.getItem(itemName) : null;
-  // Custom, hook para realizar el uso del localStorge
-  let parsedItem;
-  if (!localStorageToDo) {
-    localStorage.setItem(itemName, JSON.stringify(initialValue));
-    parsedItem = initialValue;
-  } else {
-    parsedItem = JSON.parse(localStorageToDo);
-  }
-  const [item, setItem] = React.useState(parsedItem);
+  const [error, setError] = React.useState(true);
+  const [loading, setLoading] = React.useState(true);
+
+  const [item, setItem] = React.useState(initialValue);
+  React.useEffect(() => {
+    try {
+      setTimeout(() => {
+        const localStorageToDo =
+          typeof window !== "undefined" ? localStorage.getItem(itemName) : null;
+        // Custom, hook para realizar el uso del localStorge
+        let parsedItem;
+        if (!localStorageToDo) {
+          localStorage.setItem(itemName, JSON.stringify(initialValue));
+          parsedItem = initialValue;
+        } else {
+          parsedItem = JSON.parse(localStorageToDo);
+        }
+        setItem(parsedItem);
+        setLoading(false);
+      }, 2000);
+    } catch (error) {
+      setError(error);
+    }
+  });
 
   const saveItem = (newArrItem) => {
-    const stringifyItem = JSON.stringify(newArrItem);
-    localStorage.setItem(itemName, stringifyItem);
-    setItem(newArrItem);
+    try {
+      const stringifyItem = JSON.stringify(newArrItem);
+      localStorage.setItem(itemName, stringifyItem);
+      setItem(newArrItem);
+    } catch (error) {
+      setError(error);
+    }
   };
-  return [item, saveItem];
+  return { item, saveItem, loading, error };
 }
 
 function App() {
-  const [toDo, saveToDos] = useLocalStorage("TODOS_V1", []);
+  const {
+    item: toDo,
+    saveItem: saveToDos,
+    loading,
+    error,
+  } = useLocalStorage("TODOS_V1", []);
 
   const [textInput, setInputValue] = React.useState("");
 
@@ -64,6 +86,8 @@ function App() {
 
   return (
     <AppUI
+      loading={loading}
+      error={error}
       totalTask={totalTask}
       completedTasks={completeTasks}
       textInput={textInput}
