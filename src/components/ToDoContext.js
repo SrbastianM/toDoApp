@@ -1,9 +1,16 @@
-import React from "react";
+import React, { createContext, useContext } from "react";
 import { useLocalStorage } from "./UseLocalStorage";
 
-const ToDoContext = React.useContext();
+export const ToDoContext = createContext()
+export const useToDo = () => {
+  const context = useContext(ToDoContext);
+  if (context === undefined) {
+    throw new Error('e');
+  }
+  return context
+}
 
-function ToDoProvider() {
+export function ToDoProvider({children}) {
   const {
     item: toDo,
     saveItem: saveToDos,
@@ -13,7 +20,7 @@ function ToDoProvider() {
 
   const [textInput, setInputValue] = React.useState("");
 
-  const completeTasks = toDo.filter((toDo) => !!toDo.completed).length; //Objeto en Default toDo
+  const completeTasks = toDo.filter((toDo) => !!toDo.completed).length; // Objeto en Default toDo
   const totalTask = toDo.length;
 
   let searchedTodos = [];
@@ -41,24 +48,23 @@ function ToDoProvider() {
     newArrToDo.splice(toDoIndex, 1);
     saveToDos(newArrToDo); //Seteamos un nuevo arreglo con nuevas propiedades
   };
-
+  const value = {
+    loading,
+    error,
+    totalTask,
+    completeTasks,
+    textInput,
+    setInputValue,
+    searchedTodos,
+    checkCompleteTasks,
+    deleteTasks,
+    toDo
+  }
   return (
     <ToDoContext.Provider
-      value={{
-        loading,
-        error,
-        totalTask,
-        completeTasks,
-        textInput,
-        setInputValue,
-        searchedTodos,
-        checkCompleteTasks,
-        deleteTasks,
-      }}
+      value={value}
     >
-      {props.children}
+      {children}
     </ToDoContext.Provider>
   );
 }
-
-export { ToDoContext, ToDoProvider };
