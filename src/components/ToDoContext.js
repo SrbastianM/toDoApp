@@ -1,16 +1,17 @@
 import React, { createContext, useContext } from "react";
 import { useLocalStorage } from "./UseLocalStorage";
 
-export const ToDoContext = createContext()
+export const ToDoContext = createContext();
 export const useToDo = () => {
   const context = useContext(ToDoContext);
   if (context === undefined) {
-    throw new Error('e');
+    throw new Error("e");
   }
-  return context
-}
+  return context;
+};
 
-export function ToDoProvider({children}) {
+export function ToDoProvider({ children }) {
+  // Persiste los datos
   const {
     item: toDo,
     saveItem: saveToDos,
@@ -58,13 +59,7 @@ export function ToDoProvider({children}) {
     searchedTodos,
     checkCompleteTasks,
     deleteTasks,
-    toDo
-  }
-  return (
-    <ToDoContext.Provider
-      value={value}
-    >
-      {children}
-    </ToDoContext.Provider>
-  );
+    toDo,
+  };
+  return <ToDoContext.Provider value={value}>{children}</ToDoContext.Provider>;
 }
